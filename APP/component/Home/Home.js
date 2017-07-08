@@ -13,21 +13,23 @@ import{
   Button,
 } from 'react-native';
 const {width, height}=Dimensions.get ('window');
-
-import { StackNavigator,TabNavigator } from 'react-navigation';
+import rechargeHistory from './rechargeHistory';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 import QRcode from './QRcode';
 
 class HomeScreen extends Component {
   render() {
     return (
-        <View>
+        <View >
           {/*<QRcode/>*/}
           <View style={styles.accountYue}>
             <Text>账户余额：1234（元）</Text>
           </View>
 
           <View style={styles.GridWrap}>
-            <View style={styles.GridList}>
+            <View style={styles.GridList}
+                  onPress={() => navigate ('rechargeHistory', {user: 'rechargeHistory'})}
+            >
               <Image
                   style={styles.UserImgicon}
                   source={require ('../../img/icon.jpg')}
@@ -65,12 +67,14 @@ class HomeScreen extends Component {
             </View>
           </View>
           <View style={styles.container}>
-            <Text style={{fontSize: 20}}>
-              最近交易
-            </Text>
+            <View style={styles.listTitle}>
+              <Text style={{fontSize: 20}}>
+                最近交易
+              </Text>
+            </View>
             <ScrollView showsVerticalScrollIndicator={true}
                         contentContainerStyle={styles.contentContainer}>
-              <View style={{margin: 5, backgroundColor: "#fff"}}>
+              <View style={{backgroundColor: "#fff"}}>
                 <View style={styles.historyList}>
                   <View style={styles.historyListLeft}>
                     <Text >车费费车费</Text>
@@ -143,9 +147,10 @@ class HomeScreen extends Component {
 }
 
 var styles = StyleSheet.create ({
+
   accountYue: {
     width: width,
-    height:20,
+    height: 20,
     justifyContent: 'space-around',
     backgroundColor: '#fff',
   },
@@ -158,7 +163,7 @@ var styles = StyleSheet.create ({
     flexDirection: 'row',
     width: width,
     backgroundColor: '#fff',
-    overflow:"hidden",
+    overflow: "hidden",
   },
 
   GridTopList: {
@@ -170,10 +175,10 @@ var styles = StyleSheet.create ({
   },
   GridList: {
     width: width * 0.25,
-    height:50,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderRightWidth: 1,
+    height: 60,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderRightWidth: StyleSheet.hairlineWidth,
     marginBottom: 10,
     marginTop: 10,
     alignItems: 'center',
@@ -182,17 +187,27 @@ var styles = StyleSheet.create ({
     height: 500,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#fff',
+    // borderBottomWidth:1,
+    // borderBottomColor:"#eee",
+  },
+  listTitle:{
+    width:width,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderBottomWidth:1,
+    borderBottomColor:"#eee",
   },
   contentContainer: {
     width: width,
-    backgroundColor: "#ff0000",
+    // backgroundColor: "#ff0000",
   },
   historyList: {
     flexDirection: 'row',
     height: 70,
     justifyContent: 'space-around',
-    borderBottomWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   historyListLeft: {
     flexDirection: 'column',
@@ -202,20 +217,20 @@ var styles = StyleSheet.create ({
     margin: 10,
   },
   itemWrapper: {
-    backgroundColor: '#dddddd',
+    backgroundColor: '#fff',
     alignItems: 'center',
     // borderRadius: 2,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: '#a52a2a',
-    padding: 10,
+    padding: 2,
     margin: 2,
   },
   horizontalItemWrapper: {
-    padding: 50
+    padding: 10
   },
-  UserImgicon:{
-    width:30,
-    height:30,
+  UserImgicon: {
+    width: 30,
+    height: 30,
   }
 });
 // module.exports = HomeScreen;

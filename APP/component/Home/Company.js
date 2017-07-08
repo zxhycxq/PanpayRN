@@ -10,7 +10,6 @@ class Company extends React.Component {
  /* static navigationOptions = {
     headerTitle: '公司信息-----title',
   };*/
-
   render() {
     const {navigate} = this.props.navigation;
     return (

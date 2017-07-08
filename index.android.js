@@ -16,7 +16,9 @@ import {
 const {width, height}=Dimensions.get ('window');
 import MineList from './APP/component/Mine/MineList';
 import HomeScreen from './APP/component/Home/Home';
-import Three from './APP/component/Home/Three';
+import ScanScreen from './APP/component/Home/Scan';
+import Password from './APP/component/Home/Password';
+import rechargeHistory from './APP/component/Home/rechargeHistory';
 import CompanyScreen from './APP/component/Home/Company';
 import PayStyle from './APP/component/Home/PayStyle';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
@@ -25,11 +27,11 @@ class RecentChatsScreen extends React.Component {
   render() {
     const {navigate} = this.props.navigation;
     return (
-        <View>
+        <View style={styles.body}>
           <View style={styles.GridTopWrap}>
             <View style={styles.GridTopList}>
               <TouchableHighlight
-                  onPress={() => navigate ('Three', {user: 'Three'})}
+                  onPress={() => navigate ('Scan', {user: 'Scan'})}
               >
                 <Image
                     style={styles.UserImgicon}
@@ -46,7 +48,7 @@ class RecentChatsScreen extends React.Component {
               >
                 <Image
                     style={styles.UserImgicon}
-                    source={require ('./APP/img/RQcode.jpg')}
+                    source={require ('./APP/img/homePay.jpg')}
                 />
               </TouchableHighlight>
               <Text style={styles.Usertext}>
@@ -69,16 +71,24 @@ class SetScreen extends React.Component {
               onPress={() => navigate ('MineList', {user: 'MineList'})}
           >999999999999999999999999999999 </Text>
           <Button
-              onPress={() => navigate ('Company', {user: 'Company'})}
+              onPress={() => navigate ('QRcode', {user: 'QRcode'})}
               title="关于软件button "
           />
         </View>
     );
   }
 }
+class codeScreen extends React.Component {
+  render() {
+    return <View>
+     
+    </View>;
+  }
+}
 //tab选项卡设置 前者为tab选项卡的title 后边代表着渲染哪个屏幕
 const MainScreenNavigator = TabNavigator ({
       首页: {screen: RecentChatsScreen},
+      二维码: {screen: codeScreen},
       设置: {screen: SetScreen},
     },
     {
@@ -101,17 +111,17 @@ MainScreenNavigator.navigationOptions = {
   // title: '公交卡应用',
   header: null,
 };
-/*SetScreen.navigationOptions = {
- headerTitle: '详情',
- };*/
 
 //几个链接到的页面必须填写        将tab的包裹，其他类似tab设置
 const PanpayRN = StackNavigator ({
       Home: {screen: MainScreenNavigator},
       HomeScreen: {screen: HomeScreen},
       MineList: {screen: MineList},
-      Three: {screen: Three},
+      Scan: {screen: ScanScreen},
+      Password: {screen: Password},
+      codeScreen: {screen: codeScreen},
       PayStyle: {screen: PayStyle},
+      rechargeHistory: {screen: rechargeHistory},
       CompanyScreen: {screen: CompanyScreen},
     }/*, {
      initialRouteName: 'Main',
@@ -119,6 +129,9 @@ const PanpayRN = StackNavigator ({
 );
 
 var styles = StyleSheet.create ({
+  body: {
+    backgroundColor: '#fff',
+  },
   accountYue: {
     width: width,
     justifyContent: 'space-around'
@@ -183,6 +196,14 @@ var styles = StyleSheet.create ({
   },
   horizontalItemWrapper: {
     padding: 50
+  },
+  UserImgicon: {
+    width: 80,
+    height: 80,
+  },
+  Usertext: {
+    color: "#fff",
+    paddingTop: 10,
   }
 });
 

@@ -9,10 +9,9 @@ import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
 // class SetPassword extends React.Component {
 class Password extends React.Component {
-  /*static navigationOptions = {
+  static navigationOptions = {
     headerTitle: '密码修改页面-title',
-    // header: null,
-  };*/
+  };
   render() {
     return <Text>
       密码修改页面text
