@@ -53,7 +53,6 @@ class PayStyle extends React.Component {
               />
             </View>
           </View>
-
         </View>
     );
   }

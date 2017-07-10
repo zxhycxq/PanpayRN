@@ -27,7 +27,6 @@ class ScanScreen extends React.Component {
                 style={styles.codeCenter}
                 source={require ('../../img/codecenter.jpg')}
             />
-
           </View>
         </View>
     );

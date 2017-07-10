@@ -15,11 +15,13 @@ import {
 } from 'react-native';
 const {width, height}=Dimensions.get ('window');
 import MineList from './APP/component/Mine/MineList';
+import MineCenter from './APP/component/Mine/Mine';
 import HomeScreen from './APP/component/Home/Home';
 import ScanScreen from './APP/component/Home/Scan';
 import Password from './APP/component/Home/Password';
 import rechargeHistory from './APP/component/Home/rechargeHistory';
 import CompanyScreen from './APP/component/Home/Company';
+import QRcode from './APP/component/Home/QRcode';
 import PayStyle from './APP/component/Home/PayStyle';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
@@ -67,13 +69,7 @@ class SetScreen extends React.Component {
     const {navigate} = this.props.navigation;
     return (
         <View>
-          <Text
-              onPress={() => navigate ('MineList', {user: 'MineList'})}
-          >999999999999999999999999999999 </Text>
-          <Button
-              onPress={() => navigate ('QRcode', {user: 'QRcode'})}
-              title="关于软件button "
-          />
+          <MineCenter/>
         </View>
     );
   }
@@ -81,15 +77,15 @@ class SetScreen extends React.Component {
 class codeScreen extends React.Component {
   render() {
     return <View>
-     
     </View>;
   }
 }
 //tab选项卡设置 前者为tab选项卡的title 后边代表着渲染哪个屏幕
 const MainScreenNavigator = TabNavigator ({
       首页: {screen: RecentChatsScreen},
-      二维码: {screen: codeScreen},
-      设置: {screen: SetScreen},
+      二维码: {screen: ScanScreen},
+      // 设置: {screen: SetScreen},
+      设置: {screen: MineCenter},
     },
     {
       tabBarPosition: 'bottom',
@@ -119,7 +115,7 @@ const PanpayRN = StackNavigator ({
       MineList: {screen: MineList},
       Scan: {screen: ScanScreen},
       Password: {screen: Password},
-      codeScreen: {screen: codeScreen},
+      QRcode: {screen: QRcode},
       PayStyle: {screen: PayStyle},
       rechargeHistory: {screen: rechargeHistory},
       CompanyScreen: {screen: CompanyScreen},

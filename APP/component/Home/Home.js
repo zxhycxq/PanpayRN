@@ -21,7 +21,6 @@ class HomeScreen extends Component {
   render() {
     return (
         <View >
-          {/*<QRcode/>*/}
           <View style={styles.accountYue}>
             <Text>账户余额：1234（元）</Text>
           </View>
@@ -147,10 +146,10 @@ class HomeScreen extends Component {
 }
 
 var styles = StyleSheet.create ({
-
   accountYue: {
     width: width,
-    height: 20,
+    flexDirection: 'row',
+    alignItems:'center',
     justifyContent: 'space-around',
     backgroundColor: '#fff',
   },

@@ -8,16 +8,22 @@ import{
   Dimensions,
   StyleSheet,
   InteractionManager,
+  Button,
   TextInput,
 } from 'react-native';
 import MineList from './MineList';
+import Password from '../Home/Password';
 const {width, height}=Dimensions.get ('window');
+import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 class MineCenter extends React.Component {
   render() {
+    const {navigate} = this.props.navigation;
     return (
         <View style={styles.userPage}>
-          <View>
-            <Text style={styles.Navtext}>
+          <View style={styles.topReturn}>
+            <Text style={styles.Navtext}
+                  onPress={() => this.props.navigation.goBack()}
+            >
               个人中心
             </Text>
           </View>
@@ -34,7 +40,9 @@ class MineCenter extends React.Component {
             <MineList/>                                        
           </View>
           <View>
-            <TouchableOpacity  style={styles.exit}   onPress={()=>Alert.alert('温馨提醒','确定退出吗?')}>
+            <TouchableOpacity
+                style={styles.exit}
+                onPress={()=>Alert.alert('温馨提醒','确定退出吗?')}>
               <Text style={styles.exitText}>退出登录</Text>
             </TouchableOpacity>
           </View>
@@ -44,6 +52,13 @@ class MineCenter extends React.Component {
 }
 
 const styles = StyleSheet.create ({
+  topReturn:{
+    height:30,
+    width:width,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems:'center',
+  },
   userPage:{
     width:width,
     height:height,
@@ -63,15 +78,16 @@ const styles = StyleSheet.create ({
     width: width,
     height: 200,
     justifyContent: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: '#008eee',
   },
   UserImgicon:{
     borderRadius:100
   },
   NavText: {
-    textAlign: "center",
-    color: '#fff',
-    fontSize:22
+    color: '#008eee',
+    backgroundColor: '#fff',
+    fontSize:22,
+
   },
   exit:{
     width: width,
