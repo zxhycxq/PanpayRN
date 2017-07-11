@@ -10,7 +10,7 @@ import{
   TextInput,
 } from 'react-native';
 const {width, height}=Dimensions.get ('window');
-import Password from '../Home/Password';
+import Password from '../Mine/Password';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 class MineList extends React.Component {
   static navigationOptions = {
@@ -24,7 +24,7 @@ class MineList extends React.Component {
         <View style={styles.ListContainer}>
           <View style={styles.ListItem}>
             <TouchableOpacity style={styles.ListItemL}
-
+                             
             >
               <Image
                   style={styles.icon}

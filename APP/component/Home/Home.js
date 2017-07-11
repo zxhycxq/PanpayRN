@@ -4,6 +4,7 @@ import{
   View,
   Text,
   TouchableOpacity,
+  TouchableHighlight,
   Image,
   Dimensions,
   StyleSheet,
@@ -23,47 +24,7 @@ class HomeScreen extends Component {
         <View >
           <View style={styles.accountYue}>
             <Text>账户余额：1234（元）</Text>
-          </View>
-
-          <View style={styles.GridWrap}>
-            <View style={styles.GridList}
-                  onPress={() => navigate ('rechargeHistory', {user: 'rechargeHistory'})}
-            >
-              <Image
-                  style={styles.UserImgicon}
-                  source={require ('../../img/icon.jpg')}
-              />
-              <Text style={styles.Usertext}>
-                充值历史
-              </Text>
-            </View>
-            <View style={styles.GridList}>
-              <Image
-                  style={styles.UserImgicon}
-                  source={require ('../../img/record.jpg')}
-              />
-              <Text style={styles.Usertext}>
-                消费记录
-              </Text>
-            </View>
-            <View style={styles.GridList}>
-              <Image
-                  style={styles.UserImgicon}
-                  source={require ('../../img/icon.jpg')}
-              />
-              <Text style={styles.Usertext}>
-                公共自行车
-              </Text>
-            </View>
-            <View style={styles.GridList}>
-              <Image
-                  style={styles.UserImgicon}
-                  source={require ('../../img/icon.jpg')}
-              />
-              <Text style={styles.Usertext}>
-                更多
-              </Text>
-            </View>
+            <Text>可见</Text>
           </View>
           <View style={styles.container}>
             <View style={styles.listTitle}>
@@ -148,10 +109,12 @@ class HomeScreen extends Component {
 var styles = StyleSheet.create ({
   accountYue: {
     width: width,
+    height:20,
     flexDirection: 'row',
     alignItems:'center',
+    borderBottomColor:"#eee",
+    borderBottomWidth: StyleSheet.hairlineWidth,
     justifyContent: 'space-around',
-    backgroundColor: '#fff',
   },
   GridTopWrap: {
     flexDirection: 'row',

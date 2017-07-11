@@ -13,9 +13,9 @@ import{
 const {width, height}=Dimensions.get ('window');
 import commonRN from '../common/commonRN';
 
-class rechargeHistory extends React.Component {
+class consumeRecord extends React.Component {
   static navigationOptions = {
-    headerTitle: '充值历史',
+    headerTitle: '消费记录',
     title: null,
   };
   render() {
@@ -178,4 +178,4 @@ const styles = StyleSheet.create ({
   }
 })
 
-export default rechargeHistory;
+export default consumeRecord;

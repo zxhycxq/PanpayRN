@@ -9,7 +9,7 @@ import {
   Image,
 } from 'react-native';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
-import Password from './Password';
+import Password from '../Mine/Password';
 const {width, height}=Dimensions.get ('window');
 // class ScanScreen extends React.Component {
 class ScanScreen extends React.Component {

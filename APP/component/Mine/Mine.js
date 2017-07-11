@@ -12,10 +12,11 @@ import{
   TextInput,
 } from 'react-native';
 import MineList from './MineList';
-import Password from '../Home/Password';
+import Password from './Password';
 const {width, height}=Dimensions.get ('window');
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 class MineCenter extends React.Component {
+ 
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -36,8 +37,45 @@ class MineCenter extends React.Component {
               昵称
             </Text>
           </View>
-          <View>
-            <MineList/>                                        
+          <View style={styles.ListContainer}>
+            <View style={styles.ListItem}>
+              <TouchableOpacity style={styles.ListItemL}
+                                onPress={() => navigate ('Password', {user: 'Password'})}
+              >
+                <Image
+                    style={styles.icon}
+                    source={require ('../../img/listimg.jpg')}
+                />
+                <Text style={styles.Navtext}>密码设置</Text>
+              </TouchableOpacity>
+              <Image
+                  source={require ('../../img/right-arrow.jpg')}
+              />
+            </View>
+            <View style={styles.ListItem}>
+              <View style={styles.ListItemL}>
+                <Image
+                    style={styles.icon}
+                    source={require ('../../img/listimg.jpg')}
+                />
+                <Text style={styles.Navtext}>手机号码绑定</Text>
+              </View>
+              <Image
+                  source={require ('../../img/right-arrow.jpg')}
+              />
+            </View>
+            <View style={styles.ListItem}>
+              <View style={styles.ListItemL}>
+                <Image
+                    style={styles.icon}
+                    source={require ('../../img/listimg.jpg')}
+                />
+                <Text style={styles.Navtext}>实名认证</Text>
+              </View>
+              <Image
+                  source={require ('../../img/right-arrow.jpg')}
+              />
+            </View>
           </View>
           <View>
             <TouchableOpacity
@@ -106,6 +144,30 @@ const styles = StyleSheet.create ({
     textAlign:"center",
     color:"red",
     fontSize:18,
-  }
+  },
+  ListContainer: {
+    width: width,
+    backgroundColor: '#fff',
+  },
+  ListItem: {
+    flexDirection: "row",
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: width * 0.8,
+    height: 50,
+    borderBottomWidth: 1,
+    borderColor: '#000',
+  },
+  ListItemL: {
+    flexDirection: 'row'
+  },
+  Navtext: {
+    fontSize: 20,
+  },
+  icon: {
+    marginRight: 20,
+  },
 })
 export default MineCenter;

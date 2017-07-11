@@ -18,18 +18,25 @@ import MineList from './APP/component/Mine/MineList';
 import MineCenter from './APP/component/Mine/Mine';
 import HomeScreen from './APP/component/Home/Home';
 import ScanScreen from './APP/component/Home/Scan';
-import Password from './APP/component/Home/Password';
+import Password from './APP/component/Mine/Password';
 import rechargeHistory from './APP/component/Home/rechargeHistory';
+import consumeRecord from './APP/component/Home/consumeRecord';
 import CompanyScreen from './APP/component/Home/Company';
 import QRcode from './APP/component/Home/QRcode';
 import PayStyle from './APP/component/Home/PayStyle';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
+const MyButton = (
+    <Icon.Button name="facebook" backgroundColor="#3b5998" onPress={this.loginWithFacebook}>
+      Login with Facebook
+    </Icon.Button>
+);
 class RecentChatsScreen extends React.Component {
   render() {
     const {navigate} = this.props.navigation;
     return (
         <View style={styles.body}>
+          {/*<MyButton/>*/}
           <View style={styles.GridTopWrap}>
             <View style={styles.GridTopList}>
               <TouchableHighlight
@@ -58,22 +65,60 @@ class RecentChatsScreen extends React.Component {
               </Text>
             </View>
           </View>
+
+          <View style={styles.GridWrap}>
+            <View style={styles.GridList}>
+              <TouchableHighlight
+                  onPress={() => navigate ('rechargeHistory', {user: 'rechargeHistory'})}
+              >
+                <Image
+                    style={styles.UserImgicon}
+                    source={require ('./APP/img/icon.jpg')}
+                />
+              </TouchableHighlight>
+              <Text style={styles.Usertext}>
+                充值历史
+              </Text>
+            </View>
+            <View style={styles.GridList}>
+              <TouchableHighlight
+                  onPress={() => navigate ('consumeRecord', {user: 'consumeRecord'})}
+              >
+                <Image
+                    style={styles.UserImgicon}
+                    source={require ('./APP/img/record.jpg')}
+                />
+              </TouchableHighlight>
+              <Text style={styles.Usertext}>
+                消费记录
+              </Text>
+            </View>
+            <View style={styles.GridList}>
+              <Image
+                  style={styles.UserImgicon}
+                  source={require ('./APP/img/icon.jpg')}
+              />
+              <Text style={styles.Usertext}>
+                公共自行车
+              </Text>
+            </View>
+            <View style={styles.GridList}>
+              <Image
+                  style={styles.UserImgicon}
+                  source={require ('./APP/img/icon.jpg')}
+              />
+              <Text style={styles.Usertext}>
+                更多
+              </Text>
+            </View>
+          </View>
           <HomeScreen />
         </View>
     );
   }
 }
 
-class SetScreen extends React.Component {
-  render() {
-    const {navigate} = this.props.navigation;
-    return (
-        <View>
-          <MineCenter/>
-        </View>
-    );
-  }
-}
+
 class codeScreen extends React.Component {
   render() {
     return <View>
@@ -118,6 +163,7 @@ const PanpayRN = StackNavigator ({
       QRcode: {screen: QRcode},
       PayStyle: {screen: PayStyle},
       rechargeHistory: {screen: rechargeHistory},
+      consumeRecord: {screen: consumeRecord},
       CompanyScreen: {screen: CompanyScreen},
     }/*, {
      initialRouteName: 'Main',
@@ -198,7 +244,7 @@ var styles = StyleSheet.create ({
     height: 80,
   },
   Usertext: {
-    color: "#fff",
+    color: "#000",
     paddingTop: 10,
   }
 });
