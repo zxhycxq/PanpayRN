@@ -8,15 +8,16 @@ import{
   Dimensions,
   StyleSheet,
   InteractionManager,
+  ListView,
+  ScrollView,
   Button,
   TextInput,
 } from 'react-native';
-import MineList from './MineList';
 import Password from './Password';
 const {width, height}=Dimensions.get ('window');
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 class MineCenter extends React.Component {
- 
+  //todo title顶部 全局统一
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -155,7 +156,7 @@ const styles = StyleSheet.create ({
     marginRight: 'auto',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: width * 0.8,
+    width: width,
     height: 50,
     borderBottomWidth: 1,
     borderColor: '#000',

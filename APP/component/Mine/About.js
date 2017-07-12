@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   Text,
-  StyleSheet,
   View,
-  Dimensions,
   Button,
   TextInput,
 } from 'react-native';
@@ -12,22 +10,18 @@ import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 const {width, height}=Dimensions.get ('window');
 class Password extends React.Component {
   static navigationOptions = {
-    headerTitle: '登录密码设置',
+    headerTitle: null,
   };
   render() {
     return (
-        <View style={styles.psdHtml}>
-          <View style={styles.psdBody}>
-            <Text>当前密码</Text>
-            <TextInput
-                style={styles.input}
-                placeholder={"请输入当前密码"}
-            />
+        <View styles={styles.psdHtml}>
+          <View styles={styles.psdBody}>
+            <Text>公交二维码</Text>
           </View>
-          
-          <Button
-            title="确认"
-          />
+          <View>
+            <Text>2017年7月12日10:49:04</Text>
+          </View>
+
         </View>
     );
   }

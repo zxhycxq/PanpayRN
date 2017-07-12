@@ -13,7 +13,7 @@ import{
   TextInput,
 } from 'react-native';
 const {width, height}=Dimensions.get ('window');
-import commonRN from '../common/commonRN';
+import commonRN from '../Widget/commonRN';
 
 class PayStyle extends React.Component {
   static navigationOptions = {

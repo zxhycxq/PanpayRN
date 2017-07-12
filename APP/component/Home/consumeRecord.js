@@ -11,7 +11,7 @@ import{
   TextInput,
 } from 'react-native';
 const {width, height}=Dimensions.get ('window');
-import commonRN from '../common/commonRN';
+import commonRN from '../Widget/commonRN';
 
 class consumeRecord extends React.Component {
   static navigationOptions = {

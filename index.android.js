@@ -14,7 +14,7 @@ import {
   Button,
 } from 'react-native';
 const {width, height}=Dimensions.get ('window');
-import MineList from './APP/component/Mine/MineList';
+import MineList from './APP/component/Mine/UploadIdCard';
 import MineCenter from './APP/component/Mine/Mine';
 import HomeScreen from './APP/component/Home/Home';
 import ScanScreen from './APP/component/Home/Scan';
