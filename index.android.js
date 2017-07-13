@@ -16,6 +16,8 @@ import {
 const {width, height}=Dimensions.get ('window');
 import MineList from './APP/component/Mine/UploadIdCard';
 import MineCenter from './APP/component/Mine/Mine';
+import Login from './APP/component/Mine/Login';
+import FlatListExample from './APP/component/Mine/FlatList';
 import HomeScreen from './APP/component/Home/Home';
 import ScanScreen from './APP/component/Home/Scan';
 import Password from './APP/component/Mine/Password';
@@ -161,6 +163,8 @@ const PanpayRN = StackNavigator ({
       Scan: {screen: ScanScreen},
       Password: {screen: Password},
       QRcode: {screen: QRcode},
+      Login: {screen: Login},
+      FlatListExample: {screen: FlatListExample},
       PayStyle: {screen: PayStyle},
       rechargeHistory: {screen: rechargeHistory},
       consumeRecord: {screen: consumeRecord},

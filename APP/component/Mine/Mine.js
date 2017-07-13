@@ -14,6 +14,7 @@ import{
   TextInput,
 } from 'react-native';
 import Password from './Password';
+import Login from './Login';
 const {width, height}=Dimensions.get ('window');
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 class MineCenter extends React.Component {
@@ -55,11 +56,15 @@ class MineCenter extends React.Component {
             </View>
             <View style={styles.ListItem}>
               <View style={styles.ListItemL}>
+                <TouchableOpacity style={styles.ListItemL}
+                                  onPress={() => navigate ('FlatListExample', {user: 'FlatListExample'})}
+                >
                 <Image
                     style={styles.icon}
                     source={require ('../../img/listimg.jpg')}
                 />
                 <Text style={styles.Navtext}>手机号码绑定</Text>
+                </TouchableOpacity>
               </View>
               <Image
                   source={require ('../../img/right-arrow.jpg')}
@@ -67,11 +72,15 @@ class MineCenter extends React.Component {
             </View>
             <View style={styles.ListItem}>
               <View style={styles.ListItemL}>
+                <TouchableOpacity style={styles.ListItemL}
+                                  onPress={() => navigate ('Login', {user: 'Login'})}
+                >
                 <Image
                     style={styles.icon}
                     source={require ('../../img/listimg.jpg')}
                 />
-                <Text style={styles.Navtext}>实名认证</Text>
+                <Text style={styles.Navtext}>登录</Text>
+                </TouchableOpacity>
               </View>
               <Image
                   source={require ('../../img/right-arrow.jpg')}
