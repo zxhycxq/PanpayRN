@@ -23,14 +23,14 @@ class PayStyle extends React.Component {
   render() {
     const {goBack} = this.props.navigation;
     return (
-        <View  style={styles.payWrap}>
+        <View style={styles.payWrap}>
           <View>
-            <Text>用户ID：123456963</Text>
+            <Text style={{textAlign: 'center', marginTop: 10, marginBottom: 10,}}>用户ID：123456963</Text>
           </View>
           <View style={styles.payBottom}>
             <View style={styles.payBody}>
               <View>
-                <Text>选择金额</Text>
+                <Text style={{marginTop: 10, marginBottom: 10,}}>选择金额</Text>
               </View>
               <View style={styles.priceBtnWrap}>
                 <Text style={styles.priceBtn}>10</Text>
@@ -40,11 +40,11 @@ class PayStyle extends React.Component {
                 <Text style={styles.priceBtn}>200</Text>
               </View>
               <View>
-                <Text>其他金额</Text>
+                <Text style={{textAlign: 'center', marginTop: 10, marginBottom: 10,}}>其他金额</Text>
               </View>
               <TextInput style={styles.priceInput}
                          multiline={false}
-                         defaultValue='其他金额'
+                         placeholder='其他金额'
                          keyboardType="numeric"
               />
               <Button
@@ -58,9 +58,9 @@ class PayStyle extends React.Component {
   }
 }
 const styles = StyleSheet.create ({
-  payWrap:{
+  payWrap: {
     backgroundColor: '#fff',
-    height:height,
+    height: height,
   },
   topTitle: {
     justifyContent: 'center',
@@ -83,16 +83,24 @@ const styles = StyleSheet.create ({
     width: width * 0.8,
     flexWrap: "wrap",
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    alignItems: 'flex-start',
+    // justifyContent: 'center'
+    // justifyContent: 'space-between',
   },
   priceBtn: {
     width: 100,
+    flexDirection: 'column',
     textAlign: "center",
     // justifyContent: 'center',
+    // alignItems:'center',
     backgroundColor: '#fff',
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: '#000',
     color: "#000",
+    // height:30,
+    paddingBottom: 10,
+    paddingTop: 10,
+    marginBottom: 10,
   },
   priceInput: {
     width: 200,
@@ -101,7 +109,7 @@ const styles = StyleSheet.create ({
     borderWidth: 1
   },
   payConfirm: {
-    width: width * 0.8,
+    width: width,
     height: 30,
   }
 

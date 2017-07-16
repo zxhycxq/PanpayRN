@@ -8,6 +8,7 @@ import{
   Image,
   Dimensions,
   StyleSheet,
+  Switch,
   ScrollView,
   InteractionManager,
   TextInput,
@@ -19,12 +20,37 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 import QRcode from './QRcode';
 
 class HomeScreen extends Component {
+  constructor() {
+    super ();
+    this.state = {
+      trueSwitchIsOn: true,
+      // falseSwitchIsOn: false,
+      moneyVal: 123,
+    }
+  }
+  
+  changeMoneyVal(value) {
+    this.setState ({
+      trueSwitchIsOn: value
+    });
+    console.log(this.state.trueSwitchIsOn);
+    if(this.state.trueSwitchIsOn){
+      this.state.moneyVal="*****"
+    }
+    else{
+      this.state.moneyVal=12345
+    }
+  };
+
   render() {
     return (
         <View >
           <View style={styles.accountYue}>
-            <Text>账户余额：1234（元）</Text>
-            <Text>可见</Text>
+            <Text>账户余额：{this.state.moneyVal}</Text>
+            <Switch style={{marginTop: 10, marginBottom: 10, backgroundColor: 'transparent'}}
+                    value={this.state.trueSwitchIsOn}
+                    onValueChange=  {this.changeMoneyVal.bind(this)}
+            />
           </View>
           <View style={styles.container}>
             <View style={styles.listTitle}>
@@ -109,10 +135,10 @@ class HomeScreen extends Component {
 var styles = StyleSheet.create ({
   accountYue: {
     width: width,
-    height:20,
+    height: 20,
     flexDirection: 'row',
-    alignItems:'center',
-    borderBottomColor:"#eee",
+    alignItems: 'center',
+    borderBottomColor: "#eee",
     borderBottomWidth: StyleSheet.hairlineWidth,
     justifyContent: 'space-around',
   },
@@ -153,13 +179,13 @@ var styles = StyleSheet.create ({
     // borderBottomWidth:1,
     // borderBottomColor:"#eee",
   },
-  listTitle:{
-    width:width,
+  listTitle: {
+    width: width,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    borderBottomWidth:1,
-    borderBottomColor:"#eee",
+    borderBottomWidth: 1,
+    borderBottomColor: "#eee",
   },
   contentContainer: {
     width: width,

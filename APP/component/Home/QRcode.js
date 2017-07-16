@@ -14,40 +14,44 @@ import{
 import QRCode  from 'react-native-qrcode';
 const {width, height}=Dimensions.get ('window');
 class QRcode extends React.Component {
-  getInitialState() {
-  return {
-    text: 'http://facebook.github.io/react-native/',
+  // 构造
+  constructor(props) {
+    super (props);
+    // 初始状态
+    this.state = {
+      text: 'http://facebook.github.io/react-native/',
+    };
   };
-}
+
   render() {
     return (
         <View style={styles.container}>
           <TextInput
               style={styles.input}
-              onChangeText={(text) => this.setState({text: text})}
+              onChangeText={(text) => this.setState ({text: text})}
               value={this.state.text}
           />
-          <QRCode   style={styles.QRcode}
-              value={this.state.text}
-              size={300}
-              bgColor='purple'
-              fgColor='white'/>
+          <QRCode style={styles.QRcode}
+                  value={this.state.text}
+                  size={300}
+                  bgColor='purple'
+                  fgColor='white'/>
         </View>
     );
   }
 }
-var styles = StyleSheet.create({
+var styles = StyleSheet.create ({
   container: {
-    width:width*0.8,
+    width: width * 0.8,
     backgroundColor: 'orange',
   },
-  QRcode:{
+  QRcode: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems:'center',
+    alignItems: 'center',
   },
   input: {
-    height:60,
+    height: 60,
     borderColor: 'gray',
     borderWidth: 1,
     margin: 10,

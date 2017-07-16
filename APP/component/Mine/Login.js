@@ -3,11 +3,11 @@ import {
   AppRegistry,
   Text,
   View,
+  Alert,
   Button,
   TextInput,
   StyleSheet,
   TouchableOpacity,
-  Alert,
   Dimensions
 } from 'react-native';
 import 'whatwg-fetch';
@@ -39,106 +39,130 @@ class Login extends React.Component {
    })
    */
   constructor(props) {
-    super(props);
+    super (props);
     this.state = {
       text: '',
       password: '',
       token: ''
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind (this);
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   /*onPressCallback = () => {
-    let formData = new FormData ();
-    formData.append ("loginName", this.userName);
-    formData.append ("pwd", this.password);
-    let url = "http://localhost:8080/loginApp";
-    NetUitl.postJson (url, formData, (responseText) => {
-      alert (responseText);
-      this.onLoginSuccess ();
-    })
-  };*/
+   let formData = new FormData ();
+   formData.append ("loginName", this.userName);
+   formData.append ("pwd", this.password);
+   let url = "http://localhost:8080/loginApp";
+   NetUitl.postJson (url, formData, (responseText) => {
+   alert (responseText);
+   this.onLoginSuccess ();
+   })
+   };*/
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState ({value: event.target.value});
   }
 
-  postDate(){
-    fetch({
-
-    })
+  postDate() {
+    fetch ({})
   }
 
-  sendAjax(){
-    var str = "{\"txninfo\":\""
-        +"{'txncode':'AccountQrcodeGenerate','instid':'10000002','mchntid':'100000020000001'"
-        +",'txntype':'00','userid':'20170630000000032801','syssesq':'2017071316081400','accounttype':'0080'"
-        +",'txndate':'20170707','txntime':'150000','usertype':'00','authcode':'FC4FFDA89476448DB6ED202F1DC34CB5'"
-        +",'randnum':'1413D9D1532B4BD08D4536ADB1D4EBA2','imei':'ABC123456EFD','seid':'ABC123456EFD'"
-        +"}\",\"signcode\":\"0000000000\"}";
+  sendAjax() {
+    /*var str = "{\"txninfo\":\""
+     +"{'txncode':'AccountQrcodeGenerate','instid':'10000002','mchntid':'100000020000001'"
+     +",'txntype':'00','userid':'20170630000000032801','syssesq':'2017071317144100','accounttype':'0080'"
+     +",'txndate':'20170707','txntime':'150000','usertype':'00','authcode':'4C42E69EC2C545E88EE123A5EF6FE2B0'"
+     +",'randnum':'43639828444C4346955ABA7E2053F492','imei':'ABC123456EFD','seid':'ABC123456EFD'"
+     +"}\",\"signcode\":\"0000000000\"}";*/
+    /*var str = "{\"txninfo\"" +
+        ":\"{\"usertype\":\"00\"," +
+        "\"syssesq\":\"2017071317394835850\"," +
+        "\"txntime\":\"173948\",\"logintype\":\"0\"," +
+        "\"city\":\"8340\",\"instid\":\"10000002\"," +
+        "\"mchntid\":\"100000020000001\",\"txndate\":\"20170713\"," +
+        "\"txncode\":\"UserLogin\",\"loginpasswd\":\"F07046D596B0B656D34ED6E019E7EC4B\"," +
+        "\"loginname\":\"17721036947\"}\"," +
+        "\"signcode\":\"0000000000\"}\";*/
+       var str="{\"txninfo\":\""
+               +"{\"txncode\":\"UserLogin\","
+               + "\"instid\":\"10000002\","
+               + "\"mchntid\":\"100000020000001\","
+               + "\"syssesq\":\""+1234567+"\","
+               + "\"txndate\":\""+12345678+"\","
+               + "\"txntime\":\""+12345678+"\","
+               + "\"city\":\"8340\","//城市代码
+               + "\"loginname\":\"18133223506\","//登陆名
+               + "\"loginpasswd\":\"006B60E26EE349B9C9CECD8F59CBDC88\","//登陆密码
+               + "\"logintype\":\"0\"}\",\"signcode\":\"0000000000\"}"//登陆类型	M	0：个人版	1：商户版
+           ;
+
     //POST方式
-    fetch("http://192.168.1.134:20014", {
+    fetch ("http://192.168.1.134:20012", {
       method: "POST",
       mode: "cors",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
-      body: 'data='+str
-    }).then(function (res) {
-      console.log("fetch request ", JSON.stringify(res.ok));
-      if(res.ok){
-        res.json().then(function (json) {
-          var abc=JSON.parse(json)
-          Alert.alert(eval(json));
-          // Alert.alert('提示','来自后台数据：名字'+json.name+'、年龄'+json.age,[{text: '确定', onPress: () => console.log('OK Pressed!')},]);
+      body: 'data=' + str
+    }).then (function (res) {
+      console.log ("fetch request ", JSON.stringify (res.ok));
+      if (res.ok) {
+        res.json ().then (function (json) {
+          console.info (json);
+          Alert.alert ('提示', '来自后台数据：名字' + json.name + '、年龄' + json.age, [{
+            text: '确定',
+            onPress: () => console.log ('OK Pressed!')
+          },]);
         });
-      }else{
-        Alert.alert('提示','请求失败',[{text: '确定', onPress: () => console.log('OK Pressed!')},]);
+      } else {
+        Alert.alert ('提示', '请求失败', [{text: '确定', onPress: () => console.log ('OK Pressed!')},]);
       }
 
-    }).catch(function (e) {
-      Alert.alert(eval(json));
-      // Alert.alert('提示','系统错误',[{text: '确定', onPress: () => console.log('OK Pressed!')},]);
+    }).catch (function (e) {
+      console.log ("fetch fail");
+      Alert.alert ('提示', '系统错误', [{text: '确定', onPress: () => console.log ('OK Pressed!')},]);
     });
   }
 
-  loginSubmit(){
+  loginSubmit() {
     this.state = {
-      text:  this.state.text.trim(),
-      password: this.state.text.trim(),
+      text: this.state.text.trim (),
+      password: this.state.text.trim (),
       token: ''
     };
-    alert(this.state.text+'----'+this.state.password);
+    alert (this.state.text + '----' + this.state.password);
   }
 
-    render() {
+  render() {
     return (
         <View style={styles.psdHtml}>
           <View style={styles.psdBody}>
-            <Text style={{fontSize:18}}>账号</Text>
+            <Text style={{fontSize: 18}}>账号</Text>
             <TextInput
                 style={styles.loginInput}
                 multiline={false}
                 autoFocus={true}
                 placeholder='请输入账号'
-                onChangeText={(text) => this.setState({text})}
+                onChangeText={(text) => this.setState ({text})}
             />
           </View>
           <View style={styles.psdBody}>
-            <Text style={{fontSize:18}}>密码</Text>
+            <Text style={{fontSize: 18}}>密码</Text>
             <TextInput
                 style={styles.loginInput}
                 multiline={false}
                 numberOfLine={1}
                 autoFocus={true}
                 placeholder='请输入密码'
-                onChangeText={(password) => this.setState({password})}
+                onChangeText={(password) => this.setState ({password})}
             />
           </View>
 
           <Button
               title="确认"
-              onPress={this.sendAjax.bind(this)}
+
+              onPress={this.sendAjax.bind (this)}
           />
         </View>
     );
@@ -151,7 +175,7 @@ const styles = StyleSheet.create ({
     backgroundColor: '#fff',
   },
   psdBody: {
-    width: width* 0.6,
+    width: width * 0.6,
     height: 100,
     justifyContent: 'center',
   },
@@ -162,4 +186,4 @@ const styles = StyleSheet.create ({
   }
 })
 export default Login;
-//{/*onPress={this.loginSubmit.bind(this)}*/}
+//onPress={this.loginSubmit.bind(this)}
