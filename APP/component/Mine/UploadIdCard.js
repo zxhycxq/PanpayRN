@@ -11,7 +11,7 @@ import{
 } from 'react-native';
 const {width, height}=Dimensions.get ('window');
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
-class MineList extends React.Component {
+class UploadIdCard extends React.Component {
   static navigationOptions = {
     title: '上传身份证',
   };
@@ -21,6 +21,7 @@ class MineList extends React.Component {
     // onPress={() => navigate ('Password', {user: 'Password'})}
     return (
         <View style={styles.ListContainer}>
+          
         </View>
     );
   }
@@ -29,4 +30,4 @@ class MineList extends React.Component {
 const styles = StyleSheet.create ({
   
 })
-export default MineList;
+export default UploadIdCard;

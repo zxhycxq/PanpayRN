@@ -28,7 +28,7 @@ class HomeScreen extends Component {
       moneyVal: 123,
     }
   }
-  
+
   changeMoneyVal(value) {
     this.setState ({
       trueSwitchIsOn: value
@@ -135,11 +135,12 @@ class HomeScreen extends Component {
 var styles = StyleSheet.create ({
   accountYue: {
     width: width,
-    height: 20,
+    // height: 20,
     flexDirection: 'row',
     alignItems: 'center',
     borderBottomColor: "#eee",
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    // borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth:1,
     justifyContent: 'space-around',
   },
   GridTopWrap: {

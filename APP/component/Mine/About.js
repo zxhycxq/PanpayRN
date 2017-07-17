@@ -3,25 +3,27 @@ import {
   AppRegistry,
   Text,
   View,
+  Dimensions,
+  StyleSheet,
   Button,
   TextInput,
 } from 'react-native';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 const {width, height}=Dimensions.get ('window');
-class Password extends React.Component {
+class About extends React.Component {
   static navigationOptions = {
-    headerTitle: null,
+    // headerTitle: null,
+    // title:null,
+    header: null,
   };
   render() {
     return (
-        <View styles={styles.psdHtml}>
-          <View styles={styles.psdBody}>
-            <Text>公交二维码</Text>
+        <View style={styles.psdHtml}>
+          <View style={styles.psdBody}>
+            <Text style={{fontSize:20,color:'#000',textAlign:'center',marginTop:20,marginBottom:20}}>公交二维码</Text>
+            <Text  style={{fontSize:14,color:'#000',textAlign:'center',marginTop:10,marginBottom:10}}>2017年7月17日</Text>
+            <Text>版本号 V1.0</Text>
           </View>
-          <View>
-            <Text>2017年7月12日10:49:04</Text>
-          </View>
-
         </View>
     );
   }
@@ -37,4 +39,4 @@ const styles = StyleSheet.create ({
     height:height,
   }
 })
-export default Password;
+export default About;

@@ -14,22 +14,23 @@ import {
   Button,
 } from 'react-native';
 const {width, height}=Dimensions.get ('window');
-import MineList from './APP/component/Mine/UploadIdCard';
+import UploadIdCard from './APP/component/Mine/UploadIdCard';
 import MineCenter from './APP/component/Mine/Mine';
 import Login from './APP/component/Mine/Login';
 import FlatListExample from './APP/component/Mine/FlatList';
 import HomeScreen from './APP/component/Home/Home';
-import ScanScreen from './APP/component/Home/Scan';
+import About from './APP/component/Mine/About';
 import Password from './APP/component/Mine/Password';
+import creditScore from './APP/component/Mine/creditScore';
 import rechargeHistory from './APP/component/Home/rechargeHistory';
 import consumeRecord from './APP/component/Home/consumeRecord';
 import CompanyScreen from './APP/component/Home/Company';
-import QRcode from './APP/component/Home/QRcode';
+import QRcodeScreen from './APP/component/Home/QRcode';
 import PayStyle from './APP/component/Home/PayStyle';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
-const MyButton = (
-    <Icon.Button name="facebook" backgroundColor="#3b5998" onPress={this.loginWithFacebook}>
+const myButton = (
+    <Icon.Button name="facebook" backgroundColor="#3b5998" >
       Login with Facebook
     </Icon.Button>
 );
@@ -38,11 +39,11 @@ class RecentChatsScreen extends React.Component {
     const {navigate} = this.props.navigation;
     return (
         <View style={styles.body}>
-          {/*<MyButton/>*/}
+         
           <View style={styles.GridTopWrap}>
             <View style={styles.GridTopList}>
               <TouchableHighlight
-                  onPress={() => navigate ('Scan', {user: 'Scan'})}
+                  onPress={() => navigate ('QRcodeScreen', {user: 'QRcodeScreen'})}
               >
                 <Image
                     style={styles.UserImgicon}
@@ -120,19 +121,27 @@ class RecentChatsScreen extends React.Component {
   }
 }
 
-
-class codeScreen extends React.Component {
-  render() {
-    return <View>
-    </View>;
-  }
-}
 //tab选项卡设置 前者为tab选项卡的title 后边代表着渲染哪个屏幕
 const MainScreenNavigator = TabNavigator ({
-      首页: {screen: RecentChatsScreen},
-      二维码: {screen: ScanScreen},
+      首页: {screen: RecentChatsScreen,
+        navigationOptions: {
+          tabBarIcon: ({tintColor}) =>
+              ( <Icon name="home" size={30} color="#fff" />),
+        }
+      },
+      二维码: {screen: QRcodeScreen,
+        navigationOptions: {
+          tabBarIcon: ({tintColor}) =>
+              ( <Icon name="qrcode" size={30} color="#fff" />),
+        }
+      },
       // 设置: {screen: SetScreen},
-      设置: {screen: MineCenter},
+      设置: {screen: MineCenter,
+        navigationOptions: {
+          tabBarIcon: ({tintColor}) =>
+              ( <Icon name="user" size={30} color="#fff" />),
+        }
+      },
     },
     {
       tabBarPosition: 'bottom',
@@ -140,30 +149,40 @@ const MainScreenNavigator = TabNavigator ({
       // animationEnabled: false,
       tabBarOptions: {
         style: {
-          height: 49
+          // backgroundColor: '#f7f7f7',
+          height: 69
         },
-        // activeBackgroundColor: 'white',
-        // activeTintColor: '#4ECBFC',
-        // inactiveBackgroundColor: 'white',
-        // inactiveTintColor: '#aaa',
+        // activeBackgroundColor: '#008eee',
+        inactiveTintColor: '#fff',
+        activeTintColor: '#000',
+       /* indicatorStyle: {
+          height: 0 
+        },*/
+        showIcon: true,
+        labelStyle: {
+          fontSize: 18, // 文字大小
+        },
+        // pressColor:material
         // showLabel: false,
       }
     });
 //顶部标题 
 MainScreenNavigator.navigationOptions = {
-  // title: '公交卡应用',
-  header: null,
+  title: '公交卡应用',
+  // header: null,
 };
 
 //几个链接到的页面必须填写        将tab的包裹，其他类似tab设置
 const PanpayRN = StackNavigator ({
       Home: {screen: MainScreenNavigator},
       HomeScreen: {screen: HomeScreen},
-      MineList: {screen: MineList},
-      Scan: {screen: ScanScreen},
+      UploadIdCard: {screen: UploadIdCard},
+      // Scan: {screen: ScanScreen},
       Password: {screen: Password},
-      QRcode: {screen: QRcode},
+      creditScore: {screen: creditScore},
+      QRcodeScreen: {screen: QRcodeScreen},
       Login: {screen: Login},
+      About: {screen: About},
       FlatListExample: {screen: FlatListExample},
       PayStyle: {screen: PayStyle},
       rechargeHistory: {screen: rechargeHistory},
@@ -204,6 +223,7 @@ var styles = StyleSheet.create ({
     borderTopWidth: 1,
     borderBottomWidth: 1,
     borderRightWidth: 1,
+    borderColor:'#aaa',
     marginBottom: 10,
     marginTop: 10,
     alignItems: 'center',
@@ -244,8 +264,8 @@ var styles = StyleSheet.create ({
     padding: 50
   },
   UserImgicon: {
-    width: 80,
-    height: 80,
+    width: 60,
+    height: 60,
   },
   Usertext: {
     color: "#000",

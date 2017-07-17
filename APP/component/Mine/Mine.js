@@ -16,16 +16,23 @@ import{
 import Password from './Password';
 import Login from './Login';
 const {width, height}=Dimensions.get ('window');
+import Icon from 'react-native-vector-icons/Entypo';
+import Icons from 'react-native-vector-icons/Ionicons';
+import Iconsome from 'react-native-vector-icons/FontAwesome';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 class MineCenter extends React.Component {
-  //todo title顶部 全局统一
+  static navigationOptions = {
+    headerTitle: '个人中心',
+  };
+
+  //todo title顶部 全局统一  \列表图片的对其
   render() {
     const {navigate} = this.props.navigation;
     return (
         <View style={styles.userPage}>
           <View style={styles.topReturn}>
             <Text style={styles.Navtext}
-                  onPress={() => this.props.navigation.goBack()}
+                  onPress={() => this.props.navigation.goBack ()}
             >
               个人中心
             </Text>
@@ -39,59 +46,90 @@ class MineCenter extends React.Component {
               昵称
             </Text>
           </View>
-          <View style={styles.ListContainer}>
+          <ScrollView
+              showsVerticalScrollIndicator={true}
+              contentContainerStyle={styles.ListContainer} horizontal={false}>
             <View style={styles.ListItem}>
               <TouchableOpacity style={styles.ListItemL}
                                 onPress={() => navigate ('Password', {user: 'Password'})}
               >
-                <Image
-                    style={styles.icon}
-                    source={require ('../../img/listimg.jpg')}
-                />
+                <Icon name="key" size={30} color="#008eee" style={{marginRight: 10,width:40}}/>
                 <Text style={styles.Navtext}>密码设置</Text>
               </TouchableOpacity>
-              <Image
-                  source={require ('../../img/right-arrow.jpg')}
-              />
+              <Icon name="chevron-right" size={30} color="#aaa" />
+            </View>
+            <View style={styles.ListItem}>
+              <View style={styles.ListItemL}>
+                <TouchableOpacity style={styles.ListItemL}
+                                  onPress={() => navigate ('UploadIdCard', {user: 'UploadIdCard'})}
+                >
+                  <Icons name="ios-phone-portrait-outline" size={30} color="#008eee" style={{marginRight: 10,width:40,}}/>
+                  <Text style={styles.Navtext}>身份证绑定</Text>
+                </TouchableOpacity>
+              </View>
+              <Icon name="chevron-right" size={30} color="#aaa" />
             </View>
             <View style={styles.ListItem}>
               <View style={styles.ListItemL}>
                 <TouchableOpacity style={styles.ListItemL}
                                   onPress={() => navigate ('FlatListExample', {user: 'FlatListExample'})}
                 >
-                <Image
-                    style={styles.icon}
-                    source={require ('../../img/listimg.jpg')}
-                />
-                <Text style={styles.Navtext}>手机号码绑定</Text>
+                  <Icons name="ios-phone-portrait-outline" size={30} color="#008eee" style={{marginRight: 10,width:40,}}/>
+                  <Text style={styles.Navtext}>手机绑定</Text>
                 </TouchableOpacity>
               </View>
-              <Image
-                  source={require ('../../img/right-arrow.jpg')}
-              />
+              <Icon name="chevron-right" size={30} color="#aaa" />
+            </View>
+            <View style={styles.ListItem}>
+              <View style={styles.ListItemL}>
+                <TouchableOpacity style={styles.ListItemL}
+                                  onPress={() => navigate ('creditScore', {user: 'creditScore'})}
+                >
+                  <Icon name="credit-card" size={30} color="#008eee" style={{marginRight: 10,width:40,}}/>
+                  <Text style={styles.Navtext}>信用积分</Text>
+                </TouchableOpacity>
+              </View>
+              <Icon name="chevron-right" size={30} color="#aaa"/>
             </View>
             <View style={styles.ListItem}>
               <View style={styles.ListItemL}>
                 <TouchableOpacity style={styles.ListItemL}
                                   onPress={() => navigate ('Login', {user: 'Login'})}
                 >
-                <Image
-                    style={styles.icon}
-                    source={require ('../../img/listimg.jpg')}
-                />
-                <Text style={styles.Navtext}>登录</Text>
+                  <Icon name="login" size={30} color="#008eee" style={{marginRight: 10,width:40}}/>
+                  <Text style={styles.Navtext}>登录</Text>
                 </TouchableOpacity>
               </View>
-              <Image
-                  source={require ('../../img/right-arrow.jpg')}
-              />
+              <Icon name="chevron-right" size={30} color="#aaa" />
             </View>
-          </View>
+            <View style={styles.ListItem}>
+              <View style={styles.ListItemL}>
+                <TouchableOpacity style={styles.ListItemL}
+                                  onPress={() => navigate ('About', {user: 'About'})}
+                >
+                  <Iconsome name="envelope-o" size={30} color="#008eee" style={{marginRight: 10,width:40}}/>
+                  <Text style={styles.Navtext}>消息</Text>
+                </TouchableOpacity>
+              </View>
+              <Icon name="chevron-right" size={30} color="#aaa" />
+            </View>
+            <View style={styles.ListItem}>
+              <View style={styles.ListItemL}>
+                <TouchableOpacity style={styles.ListItemL}
+                                  onPress={() => navigate ('About', {user: 'About'})}
+                >
+                  <Icon name="info" size={30} color="#008eee" style={{marginRight: 10,width:40}}/>
+                  <Text style={styles.Navtext}>关于</Text>
+                </TouchableOpacity>
+              </View>
+              <Icon name="chevron-right" size={30} color="#aaa" />
+            </View>
+          </ScrollView>
           <View>
             <TouchableOpacity
                 style={styles.exit}
-                onPress={()=>Alert.alert('温馨提醒','确定退出吗?')}>
-              <Text style={styles.exitText}>退出登录</Text>
+                onPress={() => Alert.alert ('温馨提醒', '确定退出吗?')}>
+              <Text style={styles.exitText}>退出应用</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -100,75 +138,77 @@ class MineCenter extends React.Component {
 }
 
 const styles = StyleSheet.create ({
-  topReturn:{
-    height:30,
-    width:width,
+  topReturn: {
+    height: 30,
+    width: width,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems:'center',
+    alignItems: 'center',
   },
-  userPage:{
-    width:width,
-    height:height,
+  userPage: {
+    width: width,
+    height: height,
+    flex: 1,
     backgroundColor: '#ebebeb'
   },
   Usertext: {
     textAlign: "center",
     color: '#fff',
-    marginTop: 20,
-    fontSize:18
+    marginTop: 10,
+    fontSize: 18
   },
   UserImg: {
     flexDirection: 'column',
     alignItems: 'center',
     marginTop: 0,
-    marginBottom: 20,
+    marginBottom: 10,
     width: width,
-    height: 200,
+    height: 180,
     justifyContent: 'center',
     backgroundColor: '#008eee',
   },
-  UserImgicon:{
-    borderRadius:100
+  UserImgicon: {
+    borderRadius: 100
   },
   NavText: {
     color: '#008eee',
     backgroundColor: '#fff',
-    fontSize:22,
+    fontSize: 22,
 
   },
-  exit:{
+  exit: {
     width: width,
     height: 50,
     marginTop: 30,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    borderTopWidth:2,
-    borderBottomWidth:2,
-    borderColor:"red",
+    borderTopWidth: 2,
+    borderBottomWidth: 2,
+    borderColor: "red",
     backgroundColor: '#fff',
   },
-  exitText:{
-    flex:1,
-    textAlign:"center",
-    color:"red",
-    fontSize:18,
+  exitText: {
+    flex: 1,
+    textAlign: "center",
+    color: "red",
+    fontSize: 18,
   },
   ListContainer: {
     width: width,
+    // height:120,
     backgroundColor: '#fff',
   },
   ListItem: {
     flexDirection: "row",
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    paddingLeft: 10,
+    paddingRight: 10,
     justifyContent: 'space-between',
     alignItems: 'center',
     width: width,
-    height: 50,
+    height: 40,
     borderBottomWidth: 1,
-    borderColor: '#000',
+    borderColor: '#aaa',
   },
   ListItemL: {
     flexDirection: 'row'

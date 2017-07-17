@@ -12,8 +12,9 @@ import{
   TextInput,
 } from 'react-native';
 import QRCode  from 'react-native-qrcode';
+import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 const {width, height}=Dimensions.get ('window');
-class QRcode extends React.Component {
+class QRcodeScreen extends React.Component {
   // 构造
   constructor(props) {
     super (props);
@@ -22,33 +23,37 @@ class QRcode extends React.Component {
       text: 'http://facebook.github.io/react-native/',
     };
   };
-
+  static navigationOptions = {
+    headerTitle: '乘车码',
+    title:null,
+  };
   render() {
+    const {navigate} = this.props.navigation;
     return (
         <View style={styles.container}>
-          <TextInput
-              style={styles.input}
-              onChangeText={(text) => this.setState ({text: text})}
-              value={this.state.text}
-          />
+
           <QRCode style={styles.QRcode}
                   value={this.state.text}
                   size={300}
-                  bgColor='purple'
-                  fgColor='white'/>
+                  bgColor='#000'
+                  fgColor='#fff'/>
         </View>
     );
   }
 }
 var styles = StyleSheet.create ({
   container: {
-    width: width * 0.8,
-    backgroundColor: 'orange',
-  },
-  QRcode: {
-    flexDirection: 'row',
+    width: width,
+    height:height,
+    flex:1,
     justifyContent: 'center',
     alignItems: 'center',
+    // backgroundColor: 'orange',
+  },
+  QRcode: {
+    width: width * 0.8,
+    flexDirection: 'row',
+
   },
   input: {
     height: 60,
@@ -60,4 +65,4 @@ var styles = StyleSheet.create ({
   }
 });
 
-export default QRCode;
+export default QRcodeScreen;
