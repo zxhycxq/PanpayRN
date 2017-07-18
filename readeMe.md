@@ -12,3 +12,13 @@ react-native-scrollable-tab-view
 
 RefreshControl
 ScrollView
+
+
+模板文件，
+新建js文件的时候，常用的控件等要引入，不要每次都复制。
+代码的组织
+单独复用文件：
+1、颜色部分
+2、按钮
+3、输入框
+4、文本
