@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import{
+import {
   View,
   Text,
   TouchableOpacity,
@@ -15,11 +15,14 @@ import{
 } from 'react-native';
 import Password from './Password';
 import Login from './Login';
-const {width, height}=Dimensions.get ('window');
+
+const {width, height} = Dimensions.get ('window');
 import Icon from 'react-native-vector-icons/Entypo';
 import Icons from 'react-native-vector-icons/Ionicons';
 import Iconsome from 'react-native-vector-icons/FontAwesome';
+import Mycell from '../Widget/Mycell';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
+
 class MineCenter extends React.Component {
   static navigationOptions = {
     headerTitle: '个人中心',
@@ -50,42 +53,54 @@ class MineCenter extends React.Component {
               showsVerticalScrollIndicator={true}
               contentContainerStyle={styles.ListContainer} horizontal={false}>
             <View style={styles.ListItem}>
+              <Mycell
+                  iconname="key"
+                  navigateName="Password"
+                  title="我是第一"
+                  onPress={(Password) => {
+                    navigate('Password', { user: 'Password' })
+                  }}
+              />
+            </View>
+            <View style={styles.ListItem}>
               <TouchableOpacity style={styles.ListItemL}
                                 onPress={() => navigate ('Password', {user: 'Password'})}
               >
-                <Icon name="key" size={30} color="#008eee" style={{marginRight: 10,width:40}}/>
+                <Icon name="key" size={30} color="#008eee" style={{marginRight: 10, width: 40}}/>
                 <Text style={styles.Navtext}>密码设置</Text>
               </TouchableOpacity>
-              <Icon name="chevron-right" size={30} color="#aaa" />
+              <Icon name="chevron-right" size={30} color="#aaa"/>
             </View>
             <View style={styles.ListItem}>
               <View style={styles.ListItemL}>
                 <TouchableOpacity style={styles.ListItemL}
                                   onPress={() => navigate ('UploadIdCard', {user: 'UploadIdCard'})}
                 >
-                  <Icons name="ios-phone-portrait-outline" size={30} color="#008eee" style={{marginRight: 10,width:40,}}/>
+                  <Icons name="ios-phone-portrait-outline" size={30} color="#008eee"
+                         style={{marginRight: 10, width: 40,}}/>
                   <Text style={styles.Navtext}>身份证绑定</Text>
                 </TouchableOpacity>
               </View>
-              <Icon name="chevron-right" size={30} color="#aaa" />
+              <Icon name="chevron-right" size={30} color="#aaa"/>
             </View>
             <View style={styles.ListItem}>
               <View style={styles.ListItemL}>
                 <TouchableOpacity style={styles.ListItemL}
                                   onPress={() => navigate ('FlatListExample', {user: 'FlatListExample'})}
                 >
-                  <Icons name="ios-phone-portrait-outline" size={30} color="#008eee" style={{marginRight: 10,width:40,}}/>
+                  <Icons name="ios-phone-portrait-outline" size={30} color="#008eee"
+                         style={{marginRight: 10, width: 40,}}/>
                   <Text style={styles.Navtext}>手机绑定</Text>
                 </TouchableOpacity>
               </View>
-              <Icon name="chevron-right" size={30} color="#aaa" />
+              <Icon name="chevron-right" size={30} color="#aaa"/>
             </View>
             <View style={styles.ListItem}>
               <View style={styles.ListItemL}>
                 <TouchableOpacity style={styles.ListItemL}
                                   onPress={() => navigate ('creditScore', {user: 'creditScore'})}
                 >
-                  <Icon name="credit-card" size={30} color="#008eee" style={{marginRight: 10,width:40,}}/>
+                  <Icon name="credit-card" size={30} color="#008eee" style={{marginRight: 10, width: 40,}}/>
                   <Text style={styles.Navtext}>信用积分</Text>
                 </TouchableOpacity>
               </View>
@@ -96,33 +111,33 @@ class MineCenter extends React.Component {
                 <TouchableOpacity style={styles.ListItemL}
                                   onPress={() => navigate ('Login', {user: 'Login'})}
                 >
-                  <Icon name="login" size={30} color="#008eee" style={{marginRight: 10,width:40}}/>
+                  <Icon name="login" size={30} color="#008eee" style={{marginRight: 10, width: 40}}/>
                   <Text style={styles.Navtext}>登录</Text>
                 </TouchableOpacity>
               </View>
-              <Icon name="chevron-right" size={30} color="#aaa" />
+              <Icon name="chevron-right" size={30} color="#aaa"/>
             </View>
             <View style={styles.ListItem}>
               <View style={styles.ListItemL}>
                 <TouchableOpacity style={styles.ListItemL}
                                   onPress={() => navigate ('About', {user: 'About'})}
                 >
-                  <Iconsome name="envelope-o" size={30} color="#008eee" style={{marginRight: 10,width:40}}/>
+                  <Iconsome name="envelope-o" size={30} color="#008eee" style={{marginRight: 10, width: 40}}/>
                   <Text style={styles.Navtext}>消息</Text>
                 </TouchableOpacity>
               </View>
-              <Icon name="chevron-right" size={30} color="#aaa" />
+              <Icon name="chevron-right" size={30} color="#aaa"/>
             </View>
             <View style={styles.ListItem}>
               <View style={styles.ListItemL}>
                 <TouchableOpacity style={styles.ListItemL}
                                   onPress={() => navigate ('About', {user: 'About'})}
                 >
-                  <Icon name="info" size={30} color="#008eee" style={{marginRight: 10,width:40}}/>
+                  <Icon name="info" size={30} color="#008eee" style={{marginRight: 10, width: 40}}/>
                   <Text style={styles.Navtext}>关于</Text>
                 </TouchableOpacity>
               </View>
-              <Icon name="chevron-right" size={30} color="#aaa" />
+              <Icon name="chevron-right" size={30} color="#aaa"/>
             </View>
           </ScrollView>
           <View>

@@ -39,7 +39,7 @@ class RecentChatsScreen extends React.Component {
     const {navigate} = this.props.navigation;
     return (
         <View style={styles.body}>
-         
+
           <View style={styles.GridTopWrap}>
             <View style={styles.GridTopList}>
               <TouchableHighlight
@@ -156,7 +156,7 @@ const MainScreenNavigator = TabNavigator ({
         inactiveTintColor: '#fff',
         activeTintColor: '#000',
        /* indicatorStyle: {
-          height: 0 
+          height: 0
         },*/
         showIcon: true,
         labelStyle: {
@@ -168,8 +168,7 @@ const MainScreenNavigator = TabNavigator ({
     });
 //顶部标题 
 MainScreenNavigator.navigationOptions = {
-  title: '公交卡应用',
-  // header: null,
+  title: '公交卡应用',// header: null,
 };
 
 //几个链接到的页面必须填写        将tab的包裹，其他类似tab设置
