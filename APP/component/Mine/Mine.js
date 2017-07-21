@@ -52,25 +52,14 @@ class MineCenter extends React.Component {
           <ScrollView
               showsVerticalScrollIndicator={true}
               contentContainerStyle={styles.ListContainer} horizontal={false}>
-            <View style={styles.ListItem}>
               <Mycell
                   iconname="key"
-                  navigateName="Password"
                   title="我是第一"
                   onPress={(Password) => {
-                    navigate('Password', { user: 'Password' })
+                    navigate ('Password', {user: 'Password'})
                   }}
               />
-            </View>
-            <View style={styles.ListItem}>
-              <TouchableOpacity style={styles.ListItemL}
-                                onPress={() => navigate ('Password', {user: 'Password'})}
-              >
-                <Icon name="key" size={30} color="#008eee" style={{marginRight: 10, width: 40}}/>
-                <Text style={styles.Navtext}>密码设置</Text>
-              </TouchableOpacity>
-              <Icon name="chevron-right" size={30} color="#aaa"/>
-            </View>
+           
             <View style={styles.ListItem}>
               <View style={styles.ListItemL}>
                 <TouchableOpacity style={styles.ListItemL}

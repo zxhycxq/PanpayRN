@@ -16,7 +16,7 @@ class Mycell extends React.Component {
   render() {
     let {iconname, title} = this.props;
     return (
-        <View>
+        <View  style={styles.ListItem}>
           <TouchableOpacity style={styles.ListItemL}
                             onPress={(info) => this.props.onPress (info)}
           >
