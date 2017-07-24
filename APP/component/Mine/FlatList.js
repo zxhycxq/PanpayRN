@@ -2,9 +2,12 @@
 import React, { Component } from "react";
 import { ActivityIndicator, Animated, FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 
-const AnimatedFlatList = Animated.createAnimatedComponent (FlatList);
-const REQUEST_URL = 'https://api.github.com/search/repositories?q=javascript&sort=stars';
 
+var language='javascript';
+var sort='stars';
+const AnimatedFlatList = Animated.createAnimatedComponent (FlatList);
+const REQUEST_URL = `https://api.github.com/search/repositories?q=${language}&sort=${sort}`;
+            
 class FlatListExample extends Component {
   static navigationOptions = {
     title: 'FlatListExample',
@@ -23,7 +26,6 @@ class FlatListExample extends Component {
 
   //网络请求
   fetchData() {
-    //这个是js的访问网络的方法
     fetch (REQUEST_URL)
         .then ((response) => response.json ())
         .then ((responseData) => {
@@ -55,8 +57,7 @@ class FlatListExample extends Component {
   }
 
   componentDidMount() {
-    //请求数据
-    this.fetchData ();
+    this.fetchData ();//请求数据
   }
 
   //加载等待的view
@@ -88,9 +89,12 @@ class FlatListExample extends Component {
   renderItemView({item}) {
     return (
         <View>
-          <Text style={styles.title}>name: {item.value.name} ({item.value.stargazers_count}
-                                     stars)</Text>
-          <Text style={styles.content}>description: {item.value.description}</Text>
+          <Text style={styles.title}>
+            name: {item.value.name}
+            ({item.value.stargazers_count} stars)</Text>
+          <Text style={styles.content}>
+            description: {item.value.description}
+            </Text>
         </View>
     );
   }
@@ -110,15 +114,12 @@ class FlatListExample extends Component {
   }
 
   render() {
-    //第一次加载等待的view
-    if (this.state.isLoading && !this.state.error) {
+    if (this.state.isLoading && !this.state.error) {  //第一次加载等待的view    正在加载并且没有出错
       return this.renderLoadingView ();
     } else if (this.state.error) {
-      //请求失败view
-      return this.renderErrorView (this.state.errorInfo);
+      return this.renderErrorView (this.state.errorInfo);//请求失败view
     }
-    //加载数据
-    return this.renderData ();
+    return this.renderData ();//加载数据
   }
 }
 
