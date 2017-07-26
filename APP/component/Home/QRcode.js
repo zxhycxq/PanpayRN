@@ -1,6 +1,6 @@
 'use strict';
 import React, { Component } from 'react';
-import{
+import {
   View,
   Text,
   TouchableOpacity,
@@ -9,11 +9,12 @@ import{
   StyleSheet,
   ScrollView,
   InteractionManager,
-  TextInput,
 } from 'react-native';
-import QRCode  from 'react-native-qrcode';
+import QRCode from 'react-native-qrcode';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
-const {width, height}=Dimensions.get ('window');
+
+const {width, height} = Dimensions.get ('window');
+
 class QRcodeScreen extends React.Component {
   // 构造
   constructor(props) {
@@ -23,10 +24,32 @@ class QRcodeScreen extends React.Component {
       text: 'http://facebook.github.io/react-native/',
     };
   };
-  static navigationOptions = {
+
+  /*static navigationOptions = {
     headerTitle: '乘车码',
     title:null,
-  };
+  };*/
+
+  static navigationOptions = ({navigation}) => ({
+    headerTitle: (
+        <Text style={{color: 'blue', fontSize: 18}}>一点点</Text>
+    ),
+    headerRight: (
+        <View>
+          <Image
+              style={{width: 30, height: 30}}
+              source={require ('../../img/home.png')}
+          />
+        </View>
+    ),
+    headerLeft: (
+        <Text style={{marginLeft: 10, marginRight: 20, fontSize: 18}}
+              
+        >左边</Text>
+    ),
+    headerStyle: {backgroundColor: 'orange'},
+  })
+
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -41,11 +64,12 @@ class QRcodeScreen extends React.Component {
     );
   }
 }
+
 var styles = StyleSheet.create ({
   container: {
     width: width,
-    height:height,
-    flex:1,
+    height: height,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     // backgroundColor: 'orange',

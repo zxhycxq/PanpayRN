@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import {
-  View,
-  Text,
-  TouchableOpacity,
-  TouchableHighlight,
-  Image,
   Dimensions,
   StyleSheet,
-  ScrollView,
-  InteractionManager,
-  TextInput,
-  Button,
+  Platform,
+  PixelRatio,
 } from 'react-native';
-export const {width, height}=Dimensions.get ('window');
+// export const {width, height}=Dimensions.get ('window');
 
-
+export default {
+  width: Dimensions.get ('window').width,
+  height: Dimensions.get ('window').height,
+  onePixel: 1 / PixelRatio.get (),
+  statusBarHeight: (Platform.OS === 'ios' ? 20 : 0)
+}
 const styles = StyleSheet.create ({
-  
-  codehtml:{
+
+  codehtml: {
     flex: 1,
     backgroundColor: '#008eee',
   },
@@ -32,9 +30,9 @@ const styles = StyleSheet.create ({
     borderRadius: 5,
     borderWidth: 1,
     borderColor: "#fff",
-    padding:20,
+    padding: 20,
   },
-  codeCenter:{
+  codeCenter: {
     justifyContent: 'center',
     alignItems: 'center',
   }
