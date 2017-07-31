@@ -1,6 +1,6 @@
 'use strict';
 import React, { Component } from 'react';
-import{
+import {
   View,
   Text,
   TouchableOpacity,
@@ -14,7 +14,8 @@ import{
   TextInput,
   Button,
 } from 'react-native';
-const {width, height}=Dimensions.get ('window');
+
+const {width, height} = Dimensions.get ('window');
 import rechargeHistory from './rechargeHistory';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import QRcode from './QRcode';
@@ -33,23 +34,23 @@ class HomeScreen extends Component {
     this.setState ({
       trueSwitchIsOn: value
     });
-    console.log(this.state.trueSwitchIsOn);
-    if(this.state.trueSwitchIsOn){
-      this.state.moneyVal="*****"
+    console.log (this.state.trueSwitchIsOn);
+    if (this.state.trueSwitchIsOn) {
+      this.state.moneyVal = "*****"
     }
-    else{
-      this.state.moneyVal=12345
+    else {
+      this.state.moneyVal = 12345
     }
   };
 
   render() {
     return (
-        <View >
+        <View>
           <View style={styles.accountYue}>
             <Text>账户余额：{this.state.moneyVal}</Text>
             <Switch style={{marginTop: 10, marginBottom: 10, backgroundColor: 'transparent'}}
                     value={this.state.trueSwitchIsOn}
-                    onValueChange=  {this.changeMoneyVal.bind(this)}
+                    onValueChange={this.changeMoneyVal.bind (this)}
             />
           </View>
           <View style={styles.container}>
@@ -63,66 +64,66 @@ class HomeScreen extends Component {
               <View style={{backgroundColor: "#fff"}}>
                 <View style={styles.historyList}>
                   <View style={styles.historyListLeft}>
-                    <Text >车费费车费</Text>
-                    <Text >2017年7月3日14:35:15</Text>
+                    <Text>车费费车费</Text>
+                    <Text>2017年7月3日14:35:15</Text>
                   </View>
-                  <Text >+200.00</Text>
+                  <Text>+200.00</Text>
                 </View>
                 <View style={styles.historyList}>
                   <View style={styles.historyListLeft}>
-                    <Text >车费车费车费车费车费</Text>
-                    <Text >2017年7月3日14:35:15</Text>
+                    <Text>车费车费车费车费车费</Text>
+                    <Text>2017年7月3日14:35:15</Text>
                   </View>
-                  <Text >+200.00</Text>
+                  <Text>+200.00</Text>
                 </View>
                 <View style={styles.historyList}>
                   <View style={styles.historyListLeft}>
-                    <Text >车费车费车费车费车费</Text>
-                    <Text >2017年7月3日14:35:15</Text>
+                    <Text>车费车费车费车费车费</Text>
+                    <Text>2017年7月3日14:35:15</Text>
                   </View>
-                  <Text >+200.00</Text>
+                  <Text>+200.00</Text>
                 </View>
                 <View style={styles.historyList}>
                   <View style={styles.historyListLeft}>
-                    <Text >车费车费车费车费车费</Text>
-                    <Text >2017年7月3日14:35:15</Text>
+                    <Text>车费车费车费车费车费</Text>
+                    <Text>2017年7月3日14:35:15</Text>
                   </View>
-                  <Text >+200.00</Text>
+                  <Text>+200.00</Text>
                 </View>
                 <View style={styles.historyList}>
                   <View style={styles.historyListLeft}>
-                    <Text >车费车费车费车费车费</Text>
-                    <Text >2017年7月3日14:35:15</Text>
+                    <Text>车费车费车费车费车费</Text>
+                    <Text>2017年7月3日14:35:15</Text>
                   </View>
-                  <Text >+200.00</Text>
+                  <Text>+200.00</Text>
                 </View>
                 <View style={styles.historyList}>
                   <View style={styles.historyListLeft}>
-                    <Text >车费车费车费车费车费</Text>
-                    <Text >2017年7月3日14:35:15</Text>
+                    <Text>车费车费车费车费车费</Text>
+                    <Text>2017年7月3日14:35:15</Text>
                   </View>
-                  <Text >+200.00</Text>
+                  <Text>+200.00</Text>
                 </View>
                 <View style={styles.historyList}>
                   <View style={styles.historyListLeft}>
-                    <Text >车费车费车费车费车费</Text>
-                    <Text >2017年7月3日14:35:15</Text>
+                    <Text>车费车费车费车费车费</Text>
+                    <Text>2017年7月3日14:35:15</Text>
                   </View>
-                  <Text >+200.00</Text>
+                  <Text>+200.00</Text>
                 </View>
                 <View style={styles.historyList}>
                   <View style={styles.historyListLeft}>
-                    <Text >车费车费车费车费车费</Text>
-                    <Text >2017年7月3日14:35:15</Text>
+                    <Text>车费车费车费车费车费</Text>
+                    <Text>2017年7月3日14:35:15</Text>
                   </View>
-                  <Text >+200.00</Text>
+                  <Text>+200.00</Text>
                 </View>
                 <View style={styles.historyList}>
                   <View style={styles.historyListLeft}>
-                    <Text >车费车费车费车费车费</Text>
-                    <Text >2017年7月3日14:35:15</Text>
+                    <Text>车费车费车费车费车费</Text>
+                    <Text>2017年7月3日14:35:15</Text>
                   </View>
-                  <Text >+200.00</Text>
+                  <Text>+200.00</Text>
                 </View>
               </View>
             </ScrollView>
@@ -140,7 +141,7 @@ var styles = StyleSheet.create ({
     alignItems: 'center',
     borderBottomColor: "#eee",
     // borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomWidth:1,
+    borderBottomWidth: 1,
     justifyContent: 'space-around',
   },
   GridTopWrap: {

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   View,
   Text,
   TouchableOpacity,
@@ -8,10 +7,6 @@ import {
   Image,
   Dimensions,
   StyleSheet,
-  ScrollView,
-  InteractionManager,
-  TextInput,
-  Button,
 } from 'react-native';
 
 const {width, height} = Dimensions.get ('window');
@@ -21,6 +16,8 @@ import Login from './component/Mine/Login';
 import FlatListExample from './component/Mine/FlatList';
 import HomeScreen from './component/Home/Home';
 import About from './component/Mine/About';
+import Webbrower from './component/Mine/Webbrower';
+import CameraScreen from './component/Mine/CameraScreen';
 import Password from './component/Mine/Password';
 import creditScore from './component/Mine/creditScore';
 import rechargeHistory from './component/Home/rechargeHistory';
@@ -181,6 +178,8 @@ const PanpayRN = StackNavigator ({
       QRcodeScreen: {screen: QRcodeScreen},
       Login: {screen: Login},
       About: {screen: About},
+      Webbrower: {screen: Webbrower},
+      CameraScreen: {screen: CameraScreen},
       FlatListExample: {screen: FlatListExample},
       PayStyle: {screen: PayStyle},
       rechargeHistory: {screen: rechargeHistory},

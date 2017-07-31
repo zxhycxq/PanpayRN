@@ -7,11 +7,8 @@ import {
   Alert,
   Dimensions,
   StyleSheet,
-  InteractionManager,
   ListView,
   ScrollView,
-  Button,
-  TextInput,
 } from 'react-native';
 import Password from './Password';
 import Login from './Login';
@@ -52,14 +49,14 @@ class MineCenter extends React.Component {
           <ScrollView
               showsVerticalScrollIndicator={true}
               contentContainerStyle={styles.ListContainer} horizontal={false}>
-              <Mycell
-                  iconname="key"
-                  title="我是第一"
-                  onPress={(Password) => {
-                    navigate ('Password', {user: 'Password'})
-                  }}
-              />
-           
+            <Mycell
+                iconname="key"
+                title="我是第一"
+                onPress={(Password) => {
+                  navigate ('Password', {user: 'Password'})
+                }}
+            />
+
             <View style={styles.ListItem}>
               <View style={styles.ListItemL}>
                 <TouchableOpacity style={styles.ListItemL}
@@ -72,6 +69,32 @@ class MineCenter extends React.Component {
               </View>
               <Icon name="chevron-right" size={30} color="#aaa"/>
             </View>
+
+            <View style={styles.ListItem}>
+              <View style={styles.ListItemL}>
+                <TouchableOpacity style={styles.ListItemL}
+                                  onPress={() => navigate ('CameraScreen', {user: 'CameraScreen'})}
+                >
+                  <Icons name="ios-phone-portrait-outline" size={30} color="#008eee"
+                         style={{marginRight: 10, width: 40,}}/>
+                  <Text style={styles.Navtext}>扫描</Text>
+                </TouchableOpacity>
+              </View>
+              <Icon name="chevron-right" size={30} color="#aaa"/>
+            </View>
+            <View style={styles.ListItem}>
+              <View style={styles.ListItemL}>
+                <TouchableOpacity style={styles.ListItemL}
+                                  onPress={() => navigate ('Webbrower', {user: 'Webbrower'})}
+                >
+                  <Icons name="ios-phone-portrait-outline" size={30} color="#008eee"
+                         style={{marginRight: 10, width: 40,}}/>
+                  <Text style={styles.Navtext}>webview</Text>
+                </TouchableOpacity>
+              </View>
+              <Icon name="chevron-right" size={30} color="#aaa"/>
+            </View>
+
             <View style={styles.ListItem}>
               <View style={styles.ListItemL}>
                 <TouchableOpacity style={styles.ListItemL}
